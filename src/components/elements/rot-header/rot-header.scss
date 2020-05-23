@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+    color: white;
+}
+
+nav stencil-route-link a {
+  color: white;
+  padding: 0 10px;
+  &.link-active {
+    border-bottom: 1px solid;
+  }
+}

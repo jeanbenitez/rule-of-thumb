@@ -6,13 +6,34 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { MatchResults, } from "@stencil/router";
+import { RotMenuOption, } from "./components/elements/rot-header/interfaces";
 export namespace Components {
     interface AppBlankPage {
         "match": MatchResults;
+        "titleName": string;
     }
     interface AppHome {
     }
     interface AppRoot {
+    }
+    interface RotButton {
+    }
+    interface RotHeader {
+        "menu": RotMenuOption[];
+        "search": boolean;
+        "titleName": string;
+    }
+    interface RotMainRuling {
+        "person": {
+            name: string;
+            image: string;
+            description: string;
+            extras: {
+                questionOpening: string;
+                veredictQuestion: string;
+            };
+            expireDate: Date;
+        };
     }
 }
 declare global {
@@ -34,24 +55,68 @@ declare global {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
     };
+    interface HTMLRotButtonElement extends Components.RotButton, HTMLStencilElement {
+    }
+    var HTMLRotButtonElement: {
+        prototype: HTMLRotButtonElement;
+        new (): HTMLRotButtonElement;
+    };
+    interface HTMLRotHeaderElement extends Components.RotHeader, HTMLStencilElement {
+    }
+    var HTMLRotHeaderElement: {
+        prototype: HTMLRotHeaderElement;
+        new (): HTMLRotHeaderElement;
+    };
+    interface HTMLRotMainRulingElement extends Components.RotMainRuling, HTMLStencilElement {
+    }
+    var HTMLRotMainRulingElement: {
+        prototype: HTMLRotMainRulingElement;
+        new (): HTMLRotMainRulingElement;
+    };
     interface HTMLElementTagNameMap {
         "app-blank-page": HTMLAppBlankPageElement;
         "app-home": HTMLAppHomeElement;
         "app-root": HTMLAppRootElement;
+        "rot-button": HTMLRotButtonElement;
+        "rot-header": HTMLRotHeaderElement;
+        "rot-main-ruling": HTMLRotMainRulingElement;
     }
 }
 declare namespace LocalJSX {
     interface AppBlankPage {
         "match"?: MatchResults;
+        "titleName"?: string;
     }
     interface AppHome {
     }
     interface AppRoot {
     }
+    interface RotButton {
+    }
+    interface RotHeader {
+        "menu"?: RotMenuOption[];
+        "search"?: boolean;
+        "titleName"?: string;
+    }
+    interface RotMainRuling {
+        "person"?: {
+            name: string;
+            image: string;
+            description: string;
+            extras: {
+                questionOpening: string;
+                veredictQuestion: string;
+            };
+            expireDate: Date;
+        };
+    }
     interface IntrinsicElements {
         "app-blank-page": AppBlankPage;
         "app-home": AppHome;
         "app-root": AppRoot;
+        "rot-button": RotButton;
+        "rot-header": RotHeader;
+        "rot-main-ruling": RotMainRuling;
     }
 }
 export { LocalJSX as JSX };
@@ -61,6 +126,9 @@ declare module "@stencil/core" {
             "app-blank-page": LocalJSX.AppBlankPage & JSXBase.HTMLAttributes<HTMLAppBlankPageElement>;
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "rot-button": LocalJSX.RotButton & JSXBase.HTMLAttributes<HTMLRotButtonElement>;
+            "rot-header": LocalJSX.RotHeader & JSXBase.HTMLAttributes<HTMLRotHeaderElement>;
+            "rot-main-ruling": LocalJSX.RotMainRuling & JSXBase.HTMLAttributes<HTMLRotMainRulingElement>;
         }
     }
 }

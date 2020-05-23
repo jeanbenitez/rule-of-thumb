@@ -1,0 +1,55 @@
+:host {
+  display: block;
+  height: 600px;
+  background-position: center center;
+  position: relative;
+}
+
+.main-ruling-card--blur {
+  position: absolute;
+  left: 5%;
+  bottom: 5%;
+  width: 500px;
+  height: 370px;
+  background-color: rgba(51,51,51,0.45);
+  pointer-events: none;
+  backdrop-filter: blur(35px);
+}
+
+.main-ruling-card {
+  position: absolute;
+  left: 5%;
+  bottom: 5%;
+  width: 500px;
+  height: 370px;
+  box-sizing: border-box;
+  padding: 20px;
+  font-weight: light;
+
+  & > * {
+    z-index: 2;
+  }
+
+  .question-opening {
+    font-size: 16px;
+    opacity: 0.74;
+  }
+
+  h1 {
+    font-size: 60px;
+    margin: 0;
+    font-weight: normal;
+  }
+
+  p {
+    font-size: 21px;
+  }
+
+  .veredict-question {
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+  }
+}
