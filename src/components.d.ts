@@ -43,6 +43,8 @@ export namespace Components {
     interface RotMainRulingCard {
         "person": any;
     }
+    interface RotMessageBanner {
+    }
 }
 declare global {
     interface HTMLAppBlankPageElement extends Components.AppBlankPage, HTMLStencilElement {
@@ -93,6 +95,12 @@ declare global {
         prototype: HTMLRotMainRulingCardElement;
         new (): HTMLRotMainRulingCardElement;
     };
+    interface HTMLRotMessageBannerElement extends Components.RotMessageBanner, HTMLStencilElement {
+    }
+    var HTMLRotMessageBannerElement: {
+        prototype: HTMLRotMessageBannerElement;
+        new (): HTMLRotMessageBannerElement;
+    };
     interface HTMLElementTagNameMap {
         "app-blank-page": HTMLAppBlankPageElement;
         "app-home": HTMLAppHomeElement;
@@ -102,6 +110,7 @@ declare global {
         "rot-icon": HTMLRotIconElement;
         "rot-main-ruling": HTMLRotMainRulingElement;
         "rot-main-ruling-card": HTMLRotMainRulingCardElement;
+        "rot-message-banner": HTMLRotMessageBannerElement;
     }
 }
 declare namespace LocalJSX {
@@ -140,6 +149,8 @@ declare namespace LocalJSX {
     interface RotMainRulingCard {
         "person"?: any;
     }
+    interface RotMessageBanner {
+    }
     interface IntrinsicElements {
         "app-blank-page": AppBlankPage;
         "app-home": AppHome;
@@ -149,6 +160,7 @@ declare namespace LocalJSX {
         "rot-icon": RotIcon;
         "rot-main-ruling": RotMainRuling;
         "rot-main-ruling-card": RotMainRulingCard;
+        "rot-message-banner": RotMessageBanner;
     }
 }
 export { LocalJSX as JSX };
@@ -163,6 +175,7 @@ declare module "@stencil/core" {
             "rot-icon": LocalJSX.RotIcon & JSXBase.HTMLAttributes<HTMLRotIconElement>;
             "rot-main-ruling": LocalJSX.RotMainRuling & JSXBase.HTMLAttributes<HTMLRotMainRulingElement>;
             "rot-main-ruling-card": LocalJSX.RotMainRulingCard & JSXBase.HTMLAttributes<HTMLRotMainRulingCardElement>;
+            "rot-message-banner": LocalJSX.RotMessageBanner & JSXBase.HTMLAttributes<HTMLRotMessageBannerElement>;
         }
     }
 }

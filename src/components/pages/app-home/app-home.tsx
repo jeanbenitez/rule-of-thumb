@@ -9,11 +9,13 @@ export class AppHome {
 
   render() {
     return (
-      <div class='app-home'>
+      <article>
         <rot-main-ruling />
-        <rot-message></rot-message>
-        <h2>Votes</h2>
-      </div>
+        <section>
+          <rot-message-banner></rot-message-banner>
+          <h2>Votes</h2>
+        </section>
+      </article>
     );
   }
 }
