@@ -17,11 +17,15 @@ export namespace Components {
     interface AppRoot {
     }
     interface RotButton {
+        "theme": "normal" | "invert";
     }
     interface RotHeader {
         "menu": RotMenuOption[];
         "search": boolean;
         "titleName": string;
+    }
+    interface RotIcon {
+        "icon": string;
     }
     interface RotMainRuling {
         "person": {
@@ -29,11 +33,15 @@ export namespace Components {
             image: string;
             description: string;
             extras: {
+                moreInfoLink: string;
                 questionOpening: string;
                 veredictQuestion: string;
             };
             expireDate: Date;
         };
+    }
+    interface RotMainRulingCard {
+        "person": any;
     }
 }
 declare global {
@@ -67,11 +75,23 @@ declare global {
         prototype: HTMLRotHeaderElement;
         new (): HTMLRotHeaderElement;
     };
+    interface HTMLRotIconElement extends Components.RotIcon, HTMLStencilElement {
+    }
+    var HTMLRotIconElement: {
+        prototype: HTMLRotIconElement;
+        new (): HTMLRotIconElement;
+    };
     interface HTMLRotMainRulingElement extends Components.RotMainRuling, HTMLStencilElement {
     }
     var HTMLRotMainRulingElement: {
         prototype: HTMLRotMainRulingElement;
         new (): HTMLRotMainRulingElement;
+    };
+    interface HTMLRotMainRulingCardElement extends Components.RotMainRulingCard, HTMLStencilElement {
+    }
+    var HTMLRotMainRulingCardElement: {
+        prototype: HTMLRotMainRulingCardElement;
+        new (): HTMLRotMainRulingCardElement;
     };
     interface HTMLElementTagNameMap {
         "app-blank-page": HTMLAppBlankPageElement;
@@ -79,7 +99,9 @@ declare global {
         "app-root": HTMLAppRootElement;
         "rot-button": HTMLRotButtonElement;
         "rot-header": HTMLRotHeaderElement;
+        "rot-icon": HTMLRotIconElement;
         "rot-main-ruling": HTMLRotMainRulingElement;
+        "rot-main-ruling-card": HTMLRotMainRulingCardElement;
     }
 }
 declare namespace LocalJSX {
@@ -92,11 +114,15 @@ declare namespace LocalJSX {
     interface AppRoot {
     }
     interface RotButton {
+        "theme"?: "normal" | "invert";
     }
     interface RotHeader {
         "menu"?: RotMenuOption[];
         "search"?: boolean;
         "titleName"?: string;
+    }
+    interface RotIcon {
+        "icon": string;
     }
     interface RotMainRuling {
         "person"?: {
@@ -104,11 +130,15 @@ declare namespace LocalJSX {
             image: string;
             description: string;
             extras: {
+                moreInfoLink: string;
                 questionOpening: string;
                 veredictQuestion: string;
             };
             expireDate: Date;
         };
+    }
+    interface RotMainRulingCard {
+        "person"?: any;
     }
     interface IntrinsicElements {
         "app-blank-page": AppBlankPage;
@@ -116,7 +146,9 @@ declare namespace LocalJSX {
         "app-root": AppRoot;
         "rot-button": RotButton;
         "rot-header": RotHeader;
+        "rot-icon": RotIcon;
         "rot-main-ruling": RotMainRuling;
+        "rot-main-ruling-card": RotMainRulingCard;
     }
 }
 export { LocalJSX as JSX };
@@ -128,7 +160,9 @@ declare module "@stencil/core" {
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "rot-button": LocalJSX.RotButton & JSXBase.HTMLAttributes<HTMLRotButtonElement>;
             "rot-header": LocalJSX.RotHeader & JSXBase.HTMLAttributes<HTMLRotHeaderElement>;
+            "rot-icon": LocalJSX.RotIcon & JSXBase.HTMLAttributes<HTMLRotIconElement>;
             "rot-main-ruling": LocalJSX.RotMainRuling & JSXBase.HTMLAttributes<HTMLRotMainRulingElement>;
+            "rot-main-ruling-card": LocalJSX.RotMainRulingCard & JSXBase.HTMLAttributes<HTMLRotMainRulingCardElement>;
         }
     }
 }
