@@ -7,6 +7,8 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { MatchResults, } from "@stencil/router";
 import { RotMenuOption, } from "./components/elements/rot-header/interfaces";
+import { ROTPersonType, } from "./storage/data";
+import { ROTVoteEvent, } from "./storage/interfaces";
 export namespace Components {
     interface AppBlankPage {
         "match": MatchResults;
@@ -28,22 +30,15 @@ export namespace Components {
         "icon": string;
     }
     interface RotMainRuling {
-        "person": {
-            name: string;
-            image: string;
-            description: string;
-            extras: {
-                moreInfoLink: string;
-                questionOpening: string;
-                veredictQuestion: string;
-            };
-            expireDate: Date;
-        };
+        "person": ROTPersonType;
     }
     interface RotMainRulingCard {
-        "person": any;
+        "person": ROTPersonType;
     }
     interface RotMessageBanner {
+    }
+    interface RotVoteCard {
+        "person": ROTPersonType;
     }
 }
 declare global {
@@ -101,6 +96,12 @@ declare global {
         prototype: HTMLRotMessageBannerElement;
         new (): HTMLRotMessageBannerElement;
     };
+    interface HTMLRotVoteCardElement extends Components.RotVoteCard, HTMLStencilElement {
+    }
+    var HTMLRotVoteCardElement: {
+        prototype: HTMLRotVoteCardElement;
+        new (): HTMLRotVoteCardElement;
+    };
     interface HTMLElementTagNameMap {
         "app-blank-page": HTMLAppBlankPageElement;
         "app-home": HTMLAppHomeElement;
@@ -111,6 +112,7 @@ declare global {
         "rot-main-ruling": HTMLRotMainRulingElement;
         "rot-main-ruling-card": HTMLRotMainRulingCardElement;
         "rot-message-banner": HTMLRotMessageBannerElement;
+        "rot-vote-card": HTMLRotVoteCardElement;
     }
 }
 declare namespace LocalJSX {
@@ -134,22 +136,16 @@ declare namespace LocalJSX {
         "icon": string;
     }
     interface RotMainRuling {
-        "person"?: {
-            name: string;
-            image: string;
-            description: string;
-            extras: {
-                moreInfoLink: string;
-                questionOpening: string;
-                veredictQuestion: string;
-            };
-            expireDate: Date;
-        };
+        "person"?: ROTPersonType;
     }
     interface RotMainRulingCard {
-        "person"?: any;
+        "person"?: ROTPersonType;
     }
     interface RotMessageBanner {
+    }
+    interface RotVoteCard {
+        "onVote"?: (event: CustomEvent<ROTVoteEvent>) => void;
+        "person"?: ROTPersonType;
     }
     interface IntrinsicElements {
         "app-blank-page": AppBlankPage;
@@ -161,6 +157,7 @@ declare namespace LocalJSX {
         "rot-main-ruling": RotMainRuling;
         "rot-main-ruling-card": RotMainRulingCard;
         "rot-message-banner": RotMessageBanner;
+        "rot-vote-card": RotVoteCard;
     }
 }
 export { LocalJSX as JSX };
@@ -176,6 +173,7 @@ declare module "@stencil/core" {
             "rot-main-ruling": LocalJSX.RotMainRuling & JSXBase.HTMLAttributes<HTMLRotMainRulingElement>;
             "rot-main-ruling-card": LocalJSX.RotMainRulingCard & JSXBase.HTMLAttributes<HTMLRotMainRulingCardElement>;
             "rot-message-banner": LocalJSX.RotMessageBanner & JSXBase.HTMLAttributes<HTMLRotMessageBannerElement>;
+            "rot-vote-card": LocalJSX.RotVoteCard & JSXBase.HTMLAttributes<HTMLRotVoteCardElement>;
         }
     }
 }

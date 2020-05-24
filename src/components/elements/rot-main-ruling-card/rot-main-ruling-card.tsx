@@ -1,4 +1,5 @@
 import { Component, ComponentInterface, Host, h, Prop } from '@stencil/core';
+import { ROTPersonType } from '../../../storage/data';
 
 @Component({
   tag: 'rot-main-ruling-card',
@@ -6,7 +7,7 @@ import { Component, ComponentInterface, Host, h, Prop } from '@stencil/core';
   shadow: true,
 })
 export class RotMainRulingCard implements ComponentInterface {
-  @Prop() person;
+  @Prop() person: ROTPersonType;
 
   render() {
     const { name, description, extras: { questionOpening, veredictQuestion, moreInfoLink } } = this.person;
