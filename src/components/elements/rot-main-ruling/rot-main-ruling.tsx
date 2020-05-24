@@ -12,34 +12,24 @@ export class RotMainRuling implements ComponentInterface {
     image: 'assets/images/people/pope.png',
     description: 'He’s talking tough on clergy sexual abuse, but is he just another papal pervert protector? (thumbs down) or a true pedophile punishing pontiff? (thumbs up)',
     extras: {
+      moreInfoLink: 'https://en.wikipedia.org/wiki/Pope_Francis',
       questionOpening: 'What’s your opinion on',
       veredictQuestion: 'What’s your veredict?'
     },
     expireDate: new Date('06/07/2020')
   };
 
-
-
   render() {
-    const { name, description, image, extras: { questionOpening, veredictQuestion } } = this.person;
-
     const expireInDays = getExpirationDays(this.person.expireDate);
 
     return this.person && (
-      <Host style={{ 'background-image': `url(${image})` }}>
+      <Host style={{ 'background-image': `url(${this.person.image})` }}>
+        <rot-main-ruling-card person={this.person} />
 
-        <div class="main-ruling-card--blur"></div>
-        <div class="main-ruling-card">
-          {questionOpening && <span class="question-opening">{questionOpening}</span>}
-          <h1>{name}{questionOpening && '?'}</h1>
-          <p>{description}</p>
-          <slot name="more-info"></slot>
-          {veredictQuestion && <span class="veredict-question">{veredictQuestion}</span>}
-        </div>
-
-        <div class="closing-in">
-          <span>{expireInDays === 1 ? '1 day' : `${expireInDays} days`}</span>
-        </div>
+        <section class="closing-in-banner">
+          <div>CLOSING IN</div>
+          <div><b>{expireInDays}</b>{' '}day{expireInDays !== 1 && 's'}</div>
+        </section>
       </Host>
     );
   }
