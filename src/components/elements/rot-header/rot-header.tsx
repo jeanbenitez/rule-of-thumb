@@ -8,12 +8,12 @@ import { RotMenuOption } from './interfaces';
 })
 export class RotHeader implements ComponentInterface {
   @Prop() titleName = 'Rule of Thumb.';
-  @Prop() search = false;
+  @Prop() search = true;
   @Prop() menu: RotMenuOption[] = [];
 
   renderSearch() {
     return this.search && (
-      'search-icon-here'
+      <rot-button><rot-icon icon="search" /></rot-button>
     );
   }
 
@@ -25,6 +25,7 @@ export class RotHeader implements ComponentInterface {
             <stencil-route-link url={item.url}>{item.text}</stencil-route-link>
           ))
         }
+        {this.renderSearch()}
       </nav>
     );
   }
@@ -32,9 +33,10 @@ export class RotHeader implements ComponentInterface {
   render() {
     return (
       <Host>
-        <h1>{this.titleName}</h1>
+        <stencil-route-link url="/">
+          <h1>{this.titleName}</h1>
+        </stencil-route-link>
         {this.renderMenu()}
-        {this.renderSearch()}
       </Host>
     );
   }
