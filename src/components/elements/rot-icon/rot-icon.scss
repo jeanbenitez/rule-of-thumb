@@ -1,0 +1,45 @@
+:host {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'ruleofthumb' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Icons */
+:host([icon="facebook"]):before {
+  content: "\e900";
+}
+
+:host([icon="twitter"]):before {
+  content: "\e901";
+}
+
+:host([icon="wikipedia"]):before {
+  content: "\e902";
+}
+
+:host([icon="search"]):before {
+  content: "\e903";
+}
+
+:host([icon="thumb-up"]):before {
+  content: "\e904";
+}
+
+:host([icon="thumb-down"]):before {
+  content: "\e904";
+  transform: rotate(180deg);
+  display: inline-block;
+}
+
+:host([icon="x"]):before {
+  content: "\e905";
+}

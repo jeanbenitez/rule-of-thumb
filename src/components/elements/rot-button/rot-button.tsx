@@ -1,18 +1,18 @@
-import { Component, ComponentInterface, Host, h } from '@stencil/core';
+import { Component, ComponentInterface, Host, Prop, h } from '@stencil/core';
 
 @Component({
   tag: 'rot-button',
-  styleUrl: 'rot-button.css',
+  styleUrl: 'rot-button.scss',
   shadow: true,
 })
 export class RotButton implements ComponentInterface {
+  @Prop({ reflect: true }) theme: 'normal' | 'invert' = 'normal';
 
   render() {
     return (
-      <Host>
+      <Host role="button">
         <slot></slot>
       </Host>
     );
   }
-
 }
