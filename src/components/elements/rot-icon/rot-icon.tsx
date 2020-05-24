@@ -7,4 +7,5 @@ import { Component, Prop } from '@stencil/core';
 })
 export class RotIcon {
   @Prop({ reflect: true }) icon!: string;
+  @Prop({ reflect: true }) theme: 'up' | 'down';
 }

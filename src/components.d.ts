@@ -28,6 +28,7 @@ export namespace Components {
     }
     interface RotIcon {
         "icon": string;
+        "theme": "up" | "down";
     }
     interface RotMainRuling {
         "person": ROTPersonType;
@@ -39,6 +40,9 @@ export namespace Components {
     }
     interface RotVoteCard {
         "person": ROTPersonType;
+    }
+    interface RotVotesScorebar {
+        "votes": ROTPersonType["votes"];
     }
 }
 declare global {
@@ -102,6 +106,12 @@ declare global {
         prototype: HTMLRotVoteCardElement;
         new (): HTMLRotVoteCardElement;
     };
+    interface HTMLRotVotesScorebarElement extends Components.RotVotesScorebar, HTMLStencilElement {
+    }
+    var HTMLRotVotesScorebarElement: {
+        prototype: HTMLRotVotesScorebarElement;
+        new (): HTMLRotVotesScorebarElement;
+    };
     interface HTMLElementTagNameMap {
         "app-blank-page": HTMLAppBlankPageElement;
         "app-home": HTMLAppHomeElement;
@@ -113,6 +123,7 @@ declare global {
         "rot-main-ruling-card": HTMLRotMainRulingCardElement;
         "rot-message-banner": HTMLRotMessageBannerElement;
         "rot-vote-card": HTMLRotVoteCardElement;
+        "rot-votes-scorebar": HTMLRotVotesScorebarElement;
     }
 }
 declare namespace LocalJSX {
@@ -134,6 +145,7 @@ declare namespace LocalJSX {
     }
     interface RotIcon {
         "icon": string;
+        "theme"?: "up" | "down";
     }
     interface RotMainRuling {
         "person"?: ROTPersonType;
@@ -147,6 +159,9 @@ declare namespace LocalJSX {
         "onVote"?: (event: CustomEvent<ROTVoteEvent>) => void;
         "person"?: ROTPersonType;
     }
+    interface RotVotesScorebar {
+        "votes"?: ROTPersonType["votes"];
+    }
     interface IntrinsicElements {
         "app-blank-page": AppBlankPage;
         "app-home": AppHome;
@@ -158,6 +173,7 @@ declare namespace LocalJSX {
         "rot-main-ruling-card": RotMainRulingCard;
         "rot-message-banner": RotMessageBanner;
         "rot-vote-card": RotVoteCard;
+        "rot-votes-scorebar": RotVotesScorebar;
     }
 }
 export { LocalJSX as JSX };
@@ -174,6 +190,7 @@ declare module "@stencil/core" {
             "rot-main-ruling-card": LocalJSX.RotMainRulingCard & JSXBase.HTMLAttributes<HTMLRotMainRulingCardElement>;
             "rot-message-banner": LocalJSX.RotMessageBanner & JSXBase.HTMLAttributes<HTMLRotMessageBannerElement>;
             "rot-vote-card": LocalJSX.RotVoteCard & JSXBase.HTMLAttributes<HTMLRotVoteCardElement>;
+            "rot-votes-scorebar": LocalJSX.RotVotesScorebar & JSXBase.HTMLAttributes<HTMLRotVotesScorebarElement>;
         }
     }
 }

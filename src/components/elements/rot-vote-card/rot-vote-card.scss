@@ -1,0 +1,84 @@
+:host {
+  display: flex;
+  width: 492px;
+  height: 550px;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: white;
+  font-weight: 300;
+  box-sizing: border-box;
+  background-image: linear-gradient(
+    0deg,
+    rgba(0,0,0,0.6) 0%,
+    rgba(0,0,0,0) 100%),
+    var(--rot-vote-card-bg-image);
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 50px;
+
+  rot-icon.major-vote {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+    padding: 4px;
+    width: fit-content;
+  }
+
+  h1 {
+    font-size: 45px;
+    margin: 0;
+    font-weight: 400;
+  }
+
+  p {
+    font-size: 16px;
+    min-height: 80px;
+  }
+
+  .vote-buttons {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    rot-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      border: 2px solid;
+
+      &.thumb {
+        font-size: 23px;
+        padding: 4px;
+        margin-right: 10px;
+
+        &.up {
+          background-color: $thumb-up-color;
+          border-color: $thumb-up-color;
+        }
+
+        &.down {
+          background-color: $thumb-down-color;
+          border-color: $thumb-down-color;
+        }
+
+        &:not(.selected) {
+          border-top-width: 0;
+          border-bottom-width: 0;
+        }
+
+        &.selected { border: 2px solid; }
+        &.hide { display: none; }
+      }
+    }
+  }
+}

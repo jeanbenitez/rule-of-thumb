@@ -79,8 +79,8 @@
         align-items: center;
         justify-content: center;
         font-size: 40px;
-        &:nth-child(1) { background-color: var(--rot-vote-thumb-up-color); }
-        &:nth-child(2) { background-color: var(--rot-vote-thumb-down-color); }
+        &.up { background-color: transparentize($color: $thumb-up-color, $amount: 0.1); }
+        &.down { background-color: transparentize($color: $thumb-down-color, $amount: 0.1); }
       }
     }
   }

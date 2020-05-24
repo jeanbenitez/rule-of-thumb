@@ -30,8 +30,8 @@ export class RotMainRulingCard implements ComponentInterface {
           <div class="veredict">
             {veredictQuestion && <span class="veredict--question">{veredictQuestion}</span>}
             <div class="veredict--buttons">
-              <rot-button><rot-icon icon="thumb-up"></rot-icon></rot-button>
-              <rot-button><rot-icon icon="thumb-down"></rot-icon></rot-button>
+              <rot-button class="up"><rot-icon icon="thumb-up"></rot-icon></rot-button>
+              <rot-button class="down"><rot-icon icon="thumb-down"></rot-icon></rot-button>
             </div>
           </div>
         </div>

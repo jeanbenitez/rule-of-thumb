@@ -1,0 +1,22 @@
+:host {
+  display: flex;
+}
+
+div {
+  width: var(--rot-vote-percentage);
+  min-width: fit-content;
+  color: white;
+  font-size: 29px;
+  font-weight: 300;
+  box-sizing: border-box;
+  padding: 7.5px;
+
+  &.up {
+    background-color: transparentize($color: $thumb-up-color, $amount: 0.3);
+  }
+
+  &.down {
+    background-color: transparentize($color: $thumb-down-color, $amount: 0.3);
+    text-align: right;
+  }
+}

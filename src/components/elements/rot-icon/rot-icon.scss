@@ -43,3 +43,14 @@
 :host([icon="x"]):before {
   content: "\e905";
 }
+
+/* Themes */
+:host([theme="up"]) {
+  background-color: $thumb-up-color;
+  border-color: $thumb-up-color;
+}
+
+:host([theme="down"]) {
+  background-color: $thumb-down-color;
+  border-color: $thumb-down-color;
+}
