@@ -13,15 +13,15 @@ import store from '../../storage/store';
 export class RotVoteCard implements ComponentInterface {
   @Prop() person: ROTPersonType;
 
-  @State() selectedVote: ROTVoteType;
+  @State() selectedVote: ROTVoteType = 'up';
   @State() voteDone = false;
 
   @Event() vote: EventEmitter<ROTVoteEvent>;
 
   onVote = () => {
-    if (this.selectedVote) {
+    if (!this.voteDone) {
       this.vote.emit({ personId: this.person.id, vote: this.selectedVote });
-      this.selectedVote = null;
+      this.selectedVote = 'up';
       this.voteDone = true;
     } else {
       this.voteDone = false;
@@ -35,7 +35,8 @@ export class RotVoteCard implements ComponentInterface {
   renderVoteButton(vote: ROTVoteType) {
     return (
       <rot-button
-        class={{ selected: this.selectedVote === vote }}
+        key={vote}
+        class={{ vote: true, selected: this.selectedVote === vote }}
         onClick={() => this.selectVote(vote)}
       >
         <rot-icon icon={`thumb-${vote}`} />
@@ -51,11 +52,8 @@ export class RotVoteCard implements ComponentInterface {
     const { name, description, expireDate, category } = this.person;
 
     return !!this.person && (
-      <Host>
-        <div class="name">
-          <rot-icon icon="thumb-up" />
-          <h1>{name}</h1>
-        </div>
+      <Host style={{ '--rot-vote-card-bg-image': `url(${this.person.image})` }}>
+        <h1>{name}</h1>
 
         <span class="date-and-category">
           <b>{getTimeAgoFormat(expireDate)}</b> in {this.getPersonCategory(category)}
@@ -63,7 +61,7 @@ export class RotVoteCard implements ComponentInterface {
 
         <p>{description}</p>
 
-        <div class="veredict--buttons">
+        <div class="vote-buttons">
           {
             !this.voteDone && [
               this.renderVoteButton('up'),
@@ -71,7 +69,7 @@ export class RotVoteCard implements ComponentInterface {
             ]
           }
           {
-            <rot-button onClick={this.onVote} innerHTML={this.voteDone ? 'Vote again' : 'Vote now'} />
+            <rot-button key="v" theme="text" onClick={this.onVote} innerHTML={this.voteDone ? 'Vote again' : 'Vote now'} />
           }
         </div>
       </Host>

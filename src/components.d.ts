@@ -19,7 +19,7 @@ export namespace Components {
     interface AppRoot {
     }
     interface RotButton {
-        "theme": "normal" | "invert";
+        "theme": "normal" | "invert" | "text";
     }
     interface RotHeader {
         "menu": RotMenuOption[];
@@ -125,7 +125,7 @@ declare namespace LocalJSX {
     interface AppRoot {
     }
     interface RotButton {
-        "theme"?: "normal" | "invert";
+        "theme"?: "normal" | "invert" | "text";
     }
     interface RotHeader {
         "menu"?: RotMenuOption[];
@@ -139,7 +139,7 @@ declare namespace LocalJSX {
         "person"?: ROTPersonType;
     }
     interface RotMainRulingCard {
-        "person"?: ROTPersonType;
+        "person": ROTPersonType;
     }
     interface RotMessageBanner {
     }

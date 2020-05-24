@@ -6,7 +6,7 @@ import { Component, ComponentInterface, Host, Prop, h } from '@stencil/core';
   shadow: true,
 })
 export class RotButton implements ComponentInterface {
-  @Prop({ reflect: true }) theme: 'normal' | 'invert' = 'normal';
+  @Prop({ reflect: true }) theme: 'normal' | 'invert' | 'text' = 'normal';
 
   render() {
     return (

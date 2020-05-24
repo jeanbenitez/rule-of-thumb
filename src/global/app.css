@@ -27,4 +27,8 @@ body {
   margin: 0px;
   padding: 0px;
   font-family: "Lato", "Segoe UI", Helvetica, Arial, sans-serif;
+
+  /* Colors */
+  --rot-vote-thumb-up-color: rgba(28,187,180,0.9);
+  --rot-vote-thumb-down-color: rgba(255,173,29,0.9);
 }

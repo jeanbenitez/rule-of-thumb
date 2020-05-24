@@ -7,12 +7,12 @@ import { ROTPersonType } from '../../../storage/data';
   shadow: true,
 })
 export class RotMainRulingCard implements ComponentInterface {
-  @Prop() person: ROTPersonType;
+  @Prop() person!: ROTPersonType;
 
   render() {
     const { name, description, extras: { questionOpening, veredictQuestion, moreInfoLink } } = this.person;
 
-    return this.person && (
+    return (
       <Host>
         <div class="main-ruling-card--blur"></div>
         <div class="main-ruling-card">

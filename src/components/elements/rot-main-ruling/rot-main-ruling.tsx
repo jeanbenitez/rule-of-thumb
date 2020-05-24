@@ -13,7 +13,7 @@ export class RotMainRuling implements ComponentInterface {
   render() {
     const expireInDays = getExpirationDays(new Date(this.person.expireDate));
 
-    return this.person && (
+    return !!this.person && (
       <Host style={{ 'background-image': `url(${this.person.image})` }}>
         <rot-main-ruling-card person={this.person} />
 
