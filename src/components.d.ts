@@ -36,6 +36,8 @@ export namespace Components {
     }
     interface RotMessageBanner {
     }
+    interface RotSubmitNameBanner {
+    }
     interface RotVoteCard {
         "person": ROTPersonType;
     }
@@ -100,6 +102,12 @@ declare global {
         prototype: HTMLRotMessageBannerElement;
         new (): HTMLRotMessageBannerElement;
     };
+    interface HTMLRotSubmitNameBannerElement extends Components.RotSubmitNameBanner, HTMLStencilElement {
+    }
+    var HTMLRotSubmitNameBannerElement: {
+        prototype: HTMLRotSubmitNameBannerElement;
+        new (): HTMLRotSubmitNameBannerElement;
+    };
     interface HTMLRotVoteCardElement extends Components.RotVoteCard, HTMLStencilElement {
     }
     var HTMLRotVoteCardElement: {
@@ -128,6 +136,7 @@ declare global {
         "rot-main-ruling": HTMLRotMainRulingElement;
         "rot-main-ruling-card": HTMLRotMainRulingCardElement;
         "rot-message-banner": HTMLRotMessageBannerElement;
+        "rot-submit-name-banner": HTMLRotSubmitNameBannerElement;
         "rot-vote-card": HTMLRotVoteCardElement;
         "rot-vote-cards": HTMLRotVoteCardsElement;
         "rot-votes-scorebar": HTMLRotVotesScorebarElement;
@@ -161,6 +170,8 @@ declare namespace LocalJSX {
     }
     interface RotMessageBanner {
     }
+    interface RotSubmitNameBanner {
+    }
     interface RotVoteCard {
         "onVote"?: (event: CustomEvent<ROTVoteEvent>) => void;
         "person"?: ROTPersonType;
@@ -180,6 +191,7 @@ declare namespace LocalJSX {
         "rot-main-ruling": RotMainRuling;
         "rot-main-ruling-card": RotMainRulingCard;
         "rot-message-banner": RotMessageBanner;
+        "rot-submit-name-banner": RotSubmitNameBanner;
         "rot-vote-card": RotVoteCard;
         "rot-vote-cards": RotVoteCards;
         "rot-votes-scorebar": RotVotesScorebar;
@@ -198,6 +210,7 @@ declare module "@stencil/core" {
             "rot-main-ruling": LocalJSX.RotMainRuling & JSXBase.HTMLAttributes<HTMLRotMainRulingElement>;
             "rot-main-ruling-card": LocalJSX.RotMainRulingCard & JSXBase.HTMLAttributes<HTMLRotMainRulingCardElement>;
             "rot-message-banner": LocalJSX.RotMessageBanner & JSXBase.HTMLAttributes<HTMLRotMessageBannerElement>;
+            "rot-submit-name-banner": LocalJSX.RotSubmitNameBanner & JSXBase.HTMLAttributes<HTMLRotSubmitNameBannerElement>;
             "rot-vote-card": LocalJSX.RotVoteCard & JSXBase.HTMLAttributes<HTMLRotVoteCardElement>;
             "rot-vote-cards": LocalJSX.RotVoteCards & JSXBase.HTMLAttributes<HTMLRotVoteCardsElement>;
             "rot-votes-scorebar": LocalJSX.RotVotesScorebar & JSXBase.HTMLAttributes<HTMLRotVotesScorebarElement>;

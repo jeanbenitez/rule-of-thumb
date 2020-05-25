@@ -1,0 +1,30 @@
+:host {
+  display: flex;
+  height: 80px;
+  align-items: center;
+  justify-content: space-between;
+  background-image: linear-gradient(
+    0deg,
+    rgba(255,255,255,0.8) 0%,
+    rgba(255,255,255,0.8) 100%),
+    url('/assets/images/site/people-banner.png');
+  background-position: center;
+  padding: 0 20px;
+
+  h2 {
+    font-size: 30px;
+    line-height: 24px;
+    color: #333333;
+    font-weight: 300;
+  }
+
+  rot-button {
+    border: 3px solid #333333;
+    font-size: 20px;
+    line-height: 24px;
+    color: #333333;
+    font-weight: 400;
+    text-align: center;
+    padding: 10px 30px;
+  }
+}

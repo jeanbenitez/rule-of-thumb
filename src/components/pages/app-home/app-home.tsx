@@ -12,9 +12,10 @@ export class AppHome {
       <article>
         <rot-main-ruling />
         <section>
-          <rot-message-banner></rot-message-banner>
+          <rot-message-banner />
           <h2>Votes</h2>
           <rot-vote-cards />
+          <rot-submit-name-banner />
         </section>
       </article>
     );
