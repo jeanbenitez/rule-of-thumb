@@ -18,9 +18,10 @@ export const config: Config = {
   outputTargets: [
     {
       type: 'www',
+      polyfills: false,
+      dir: 'docs',
       // comment the following line to disable service workers in production
-      serviceWorker: null,
-      baseUrl: 'https://ruleofthumb.local/'
+      serviceWorker: null
     }
   ]
 };

@@ -1,0 +1,1 @@
+import{r as a,h as p}from"./p-68b36287.js";const s=class{constructor(p){a(this,p)}render(){return p("div",{class:"app-blank-page"},p("p",null,this.titleName))}};s.style=".app-blank-page{padding:20vh 10vw}";export{s as app_blank_page}
