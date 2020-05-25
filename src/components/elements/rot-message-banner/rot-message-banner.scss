@@ -8,6 +8,13 @@
       "b p x";
   transition: all .5s ease-in-out;
   max-height: 300px;
+
+  @media screen and (max-width: 600px) {
+    grid-template:
+      "s s x"
+      "b b x"
+      "p p p" / 1fr 1fr 40px;
+  }
 }
 
 :host(:not(.hide)) {
@@ -21,24 +28,32 @@
 }
 
 span {
-  font-size: 22px;
-  line-height: 26px;
   grid-area: s;
+  @media screen and (min-width: 600px) {
+    font-size: 22px;
+    line-height: 26px;
+    display: flex;
+    align-items: flex-end;
+  }
 }
 
 b {
-  font-size: 37px;
-  line-height: 42px;
-  color: #333333;
   grid-area: b;
+  color: #333333;
+  @media screen and (min-width: 600px) {
+    font-size: 37px;
+    line-height: 42px;
+  }
 }
 
 p {
-  font-size: 15px;
-  letter-spacing: 0px;
-  line-height: 23px;
   grid-area: p;
-  margin-left: 20px;
+  @media screen and (min-width: 600px) {
+    font-size: 15px;
+    letter-spacing: 0px;
+    line-height: 23px;
+    margin-left: 20px;
+  }
 }
 
 rot-button {
