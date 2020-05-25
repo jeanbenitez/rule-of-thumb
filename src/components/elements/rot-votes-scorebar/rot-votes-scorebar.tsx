@@ -13,13 +13,17 @@ export class RotVotesScorebar implements ComponentInterface {
   render() {
     const percents = getVotesInPercents(this.votes);
 
+    const percentsWidth = (percents.up === 0 && percents.down === 0)
+      ? { up : 50, down: 50 }
+      : percents;
+
     return (
       <Host>
-        <div class="up" style={{ '--rot-vote-percentage': percents.up + '%' }}>
-          <rot-icon icon="thumb-up" /> {percents.up}
+        <div class="up" style={{ '--rot-vote-percentage': percentsWidth.up + '%' }}>
+          <rot-icon icon="thumb-up" /> {percents.up + '%'}
         </div>
-        <div class="down" style={{ '--rot-vote-percentage': percents.down + '%' }}>
-          {percents.down} <rot-icon icon="thumb-down" />
+        <div class="down" style={{ '--rot-vote-percentage': percentsWidth.down + '%' }}>
+          {percents.down + '%'} <rot-icon icon="thumb-down" />
         </div>
       </Host>
     );

@@ -60,10 +60,11 @@ export class RotVoteCard implements ComponentInterface {
 
     return !!this.person && (
       <Host style={{ '--rot-vote-card-bg-image': `url(${this.person.image})` }}>
-        <section>
-          <rot-icon class="major-vote" theme={majorVote} icon={`thumb-${majorVote}`} />
+        <div class="title-name">
+          <rot-icon theme={majorVote} icon={`thumb-${majorVote}`} />
           <h1>{name}</h1>
-
+        </div>
+        <section>
           <span class="date-and-category">
             <b>{getTimeAgoFormat(expireDate)}</b> in {this.getPersonCategory(category)}
           </span>
