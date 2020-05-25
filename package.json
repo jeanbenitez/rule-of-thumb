@@ -5,7 +5,7 @@
   "description": "Rule of Thumb",
   "scripts": {
     "build": "stencil build",
-    "build:gh-pages": "stencil build && node scripts/fix-path-for-gh-pages.js",
+    "build:gh-pages": "stencil build --config stencil-gh.config.ts && node scripts/fix-path-for-gh-pages.js",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",

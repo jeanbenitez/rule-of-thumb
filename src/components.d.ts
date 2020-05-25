@@ -16,6 +16,7 @@ export namespace Components {
     interface AppHome {
     }
     interface AppRoot {
+        "path": string;
     }
     interface RotButton {
         "theme": "normal" | "invert" | "text";
@@ -159,6 +160,7 @@ declare namespace LocalJSX {
     interface AppHome {
     }
     interface AppRoot {
+        "path"?: string;
     }
     interface RotButton {
         "theme"?: "normal" | "invert" | "text";
