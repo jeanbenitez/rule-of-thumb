@@ -25,6 +25,7 @@ export namespace Components {
     }
     interface RotHeader {
         "menu": RotMenuOption[];
+        "path": string;
         "search": boolean;
         "titleName": string;
     }
@@ -169,6 +170,7 @@ declare namespace LocalJSX {
     }
     interface RotHeader {
         "menu"?: RotMenuOption[];
+        "path"?: string;
         "search"?: boolean;
         "titleName"?: string;
     }

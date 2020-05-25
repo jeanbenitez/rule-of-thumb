@@ -16,7 +16,7 @@ export class AppRoot {
   render() {
     return (
       <div>
-        <rot-header titleName="Rule of Thumb." menu={this.pages} />
+        <rot-header path={this.path} titleName="Rule of Thumb." menu={this.pages} />
         <main>
           <stencil-router>
             <stencil-route-switch scrollTopOffset={0}>

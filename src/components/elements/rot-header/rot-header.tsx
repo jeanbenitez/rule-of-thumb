@@ -7,6 +7,7 @@ import { RotMenuOption } from './interfaces';
   shadow: true,
 })
 export class RotHeader implements ComponentInterface {
+  @Prop() path: string = '/';
   @Prop() titleName = 'Rule of Thumb.';
   @Prop() search = true;
   @Prop() menu: RotMenuOption[] = [];
@@ -32,7 +33,7 @@ export class RotHeader implements ComponentInterface {
       <nav class={{ 'menu-opened': this.menuOpened }}>
         {
           this.menu.map((item) => (
-            <stencil-route-link onClick={this.closeMenu} url={item.url}>{item.text}</stencil-route-link>
+            <stencil-route-link onClick={this.closeMenu} url={this.path + item.url}>{item.text}</stencil-route-link>
           ))
         }
         {this.renderSearch()}
@@ -46,7 +47,7 @@ export class RotHeader implements ComponentInterface {
   render() {
     return (
       <Host>
-        <stencil-route-link url="/">
+        <stencil-route-link url={this.path}>
           <h1>{this.titleName}</h1>
         </stencil-route-link>
         {this.renderMenu()}
