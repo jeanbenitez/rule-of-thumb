@@ -1,0 +1,1 @@
+System.register(["./p-f3423d46.system.js"],(function(t){"use strict";var e,n;return{setters:[function(t){e=t.r;n=t.h}],execute:function(){var r=".app-blank-page{padding:20vh 10vw}";var a=t("app_blank_page",function(){function t(t){e(this,t)}t.prototype.render=function(){return n("div",{class:"app-blank-page"},n("p",null,this.titleName))};return t}());a.style=r}}}));
