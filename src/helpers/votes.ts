@@ -1,5 +1,4 @@
-import { ROTPersonType } from "../storage/data";
-import { ROTVoteType } from "../storage/interfaces";
+import { ROTPersonType, ROTVoteType } from "../storage/interfaces";
 
 export function getVotesInPercents(votes: ROTPersonType['votes']) {
   return {

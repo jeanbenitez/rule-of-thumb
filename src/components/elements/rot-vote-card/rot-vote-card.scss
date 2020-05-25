@@ -1,7 +1,6 @@
 :host {
   display: flex;
-  width: 492px;
-  height: 550px;
+  min-height: 550px;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -30,6 +29,7 @@
 
   h1 {
     font-size: 45px;
+    line-height: 35px;
     margin: 0;
     font-weight: 400;
   }

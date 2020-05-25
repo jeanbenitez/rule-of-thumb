@@ -1,6 +1,6 @@
-import { Component, ComponentInterface, Host, h, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Host, h } from '@stencil/core';
 import { getExpirationDays } from '../../../helpers/date';
-import { ROTPersonType } from '../../../storage/data';
+import store from '../../../storage/store';
 
 @Component({
   tag: 'rot-main-ruling',
@@ -8,14 +8,13 @@ import { ROTPersonType } from '../../../storage/data';
   shadow: true,
 })
 export class RotMainRuling implements ComponentInterface {
-  @Prop() person: ROTPersonType;
-
   render() {
-    const expireInDays = getExpirationDays(new Date(this.person.expireDate));
+    const { mainPerson } = store.state;
+    const expireInDays = getExpirationDays(new Date(mainPerson.expireDate));
 
-    return !!this.person && (
-      <Host style={{ 'background-image': `url(${this.person.image})` }}>
-        <rot-main-ruling-card person={this.person} />
+    return !!mainPerson && (
+      <Host style={{ 'background-image': `url(${mainPerson.image})` }}>
+        <rot-main-ruling-card person={mainPerson} />
 
         <section class="closing-in-banner">
           <div>CLOSING IN</div>
@@ -24,5 +23,4 @@ export class RotMainRuling implements ComponentInterface {
       </Host>
     );
   }
-
 }

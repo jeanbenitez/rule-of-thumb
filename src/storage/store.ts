@@ -3,8 +3,9 @@ import { RotDB } from "./data";
 
 RotDB.init();
 const store = createStore({
-  persons: RotDB.getPersons(),
-  categories: RotDB.getCategories()
+  persons: RotDB.getNotMainPersons(),
+  categories: RotDB.getCategories(),
+  mainPerson: RotDB.getMainPerson()
 });
 
 export default store;

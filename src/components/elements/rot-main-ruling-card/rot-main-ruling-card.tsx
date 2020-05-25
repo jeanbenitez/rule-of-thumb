@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, Host, h, Prop } from '@stencil/core';
-import { ROTPersonType } from '../../../storage/data';
+import { ROTPersonType } from '../../../storage/interfaces';
 
 @Component({
   tag: 'rot-main-ruling-card',

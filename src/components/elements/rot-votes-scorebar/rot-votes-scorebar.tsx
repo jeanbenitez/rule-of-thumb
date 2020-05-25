@@ -1,6 +1,6 @@
 import { Component, ComponentInterface, Host, h, Prop } from '@stencil/core';
 import { getVotesInPercents } from '../../../helpers/votes';
-import { ROTPersonType } from '../../../storage/data';
+import { ROTPersonType } from '../../../storage/interfaces';
 
 @Component({
   tag: 'rot-votes-scorebar',

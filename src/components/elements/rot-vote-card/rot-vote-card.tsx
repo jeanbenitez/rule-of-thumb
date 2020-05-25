@@ -1,8 +1,7 @@
 import { Component, ComponentInterface, Host, Prop, h, State, Event } from '@stencil/core';
 import { EventEmitter } from '@stencil/router/dist/types/stencil.core';
 import { getTimeAgoFormat } from '../../../helpers/date';
-import { ROTPersonType } from '../../../storage/data';
-import { ROTVoteType, ROTVoteEvent } from '../../../storage/interfaces';
+import { ROTPersonType, ROTVoteType, ROTVoteEvent } from '../../../storage/interfaces';
 import store from '../../../storage/store';
 import { getMajorVote } from '../../../helpers/votes';
 

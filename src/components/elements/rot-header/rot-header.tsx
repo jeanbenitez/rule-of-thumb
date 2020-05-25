@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Host, h, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Host, h, Prop, State } from '@stencil/core';
 import { RotMenuOption } from './interfaces';
 
 @Component({
@@ -11,6 +11,16 @@ export class RotHeader implements ComponentInterface {
   @Prop() search = true;
   @Prop() menu: RotMenuOption[] = [];
 
+  @State() menuOpened = false;
+
+  closeMenu = () => {
+    this.menuOpened = false;
+  }
+
+  toggleMenu = () => {
+    this.menuOpened = !this.menuOpened;
+  }
+
   renderSearch() {
     return this.search && (
       <rot-button><rot-icon icon="search" /></rot-button>
@@ -19,13 +29,16 @@ export class RotHeader implements ComponentInterface {
 
   renderMenu() {
     return (
-      <nav>
+      <nav class={{ 'menu-opened': this.menuOpened }}>
         {
           this.menu.map((item) => (
-            <stencil-route-link url={item.url}>{item.text}</stencil-route-link>
+            <stencil-route-link onClick={this.closeMenu} url={item.url}>{item.text}</stencil-route-link>
           ))
         }
         {this.renderSearch()}
+        <rot-button class="responsive-icon" onClick={this.toggleMenu}>
+          <rot-icon icon={this.menuOpened ? "x" : "navicon"} />
+        </rot-button>
       </nav>
     );
   }

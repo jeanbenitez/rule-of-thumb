@@ -1,8 +1,9 @@
 import LocalDB from 'local-db';
-import { ROTVoteType } from './interfaces';
+import { ROTVoteType, ROTCategoryType, ROTPersonType } from './interfaces';
+import { getExpirationDays } from '../helpers/date';
 
 // initial data to populate our db tables
-const initialData = {
+const initialData: { categories: ROTCategoryType[]; persons: ROTPersonType[]; } = {
   categories: [
     { slug: 'business', name: 'Business' },
     { slug: 'cultural', name: 'Cultural' },
@@ -22,14 +23,41 @@ const initialData = {
       },
       votes: { up: 0, down: 0 },
       expireDate: '06/07/2020'
+    },
+    {
+      name: 'Kanye West',
+      image: 'assets/images/people/kanye.png',
+      description: 'Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.',
+      category: 'entertaiment',
+      votes: { up: 3, down: 4 },
+      expireDate: '04/27/2020'
+    },
+    {
+      name: 'Mark Zuckerberg',
+      image: 'assets/images/people/mark.png',
+      description: 'Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.',
+      category: 'business',
+      votes: { up: 6, down: 2 },
+      expireDate: '04/25/2020'
+    },
+    {
+      name: 'Cristina Fernández de Kirchner',
+      image: 'assets/images/people/cristina.png',
+      description: 'Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.',
+      category: 'politics',
+      votes: { up: 3, down: 12 },
+      expireDate: '04/23/2020'
+    },
+    {
+      name: 'Malala Yousafai',
+      image: 'assets/images/people/malala.png',
+      description: 'Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.',
+      category: 'entertaiment',
+      votes: { up: 31, down: 1 },
+      expireDate: '04/20/2020'
     }
   ]
 };
-
-// Types
-export type ROTDataType = typeof initialData;
-export type ROTPersonType = { id: string } & ROTDataType['persons'][0];
-export type ROTCategoryType = { id: string } & ROTDataType['categories'][0];
 
 export class RotDB {
   static persons = new LocalDB('persons');
@@ -54,7 +82,7 @@ export class RotDB {
     person.votes[vote] = person.votes[vote] + 1;
     this.updatePerson(person);
 
-    return this.getPersons();
+    return this.getNotMainPersons();
   }
 
   static getCategory(id: string): ROTCategoryType {
@@ -65,11 +93,27 @@ export class RotDB {
     return this.persons.query({ id })[0];
   }
 
+  static getMainPerson(): ROTPersonType {
+    const persons = this.getPersons();
+    return persons.find(person => getExpirationDays(new Date(person.expireDate)) > 0);
+  }
+
+  static getNotMainPersons(): ROTPersonType[] {
+    const persons = this.getPersons();
+    return persons.filter(person => getExpirationDays(new Date(person.expireDate)) <= 0);
+  }
+
   static getCategories(): ROTCategoryType[] {
     return this.categories.query();
   }
 
   static getPersons(): ROTPersonType[] {
-    return this.persons.query();
+    const persons: ROTPersonType[] = this.persons.query();
+
+    persons.sort((a, b) => (
+      new Date(b.expireDate).getTime() - new Date(a.expireDate).getTime()
+    ));
+
+    return persons;
   }
 }

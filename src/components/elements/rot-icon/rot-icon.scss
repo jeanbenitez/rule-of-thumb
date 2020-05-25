@@ -44,6 +44,10 @@
   content: "\e905";
 }
 
+:host([icon="navicon"]):before {
+  content: "\f0c9";
+}
+
 /* Themes */
 :host([theme="up"]) {
   background-color: $thumb-up-color;
