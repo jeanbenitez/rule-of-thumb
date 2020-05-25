@@ -1,0 +1,40 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 10vw;
+  padding: 20px 0;
+  background-image: linear-gradient(
+    to right,
+    #979797 33%,
+    rgba(255,255,255,0) 0%);
+  background-position: top;
+  background-size: 4px 1px;
+  background-repeat: repeat-x;
+
+  @media #{$small-only} {
+    flex-direction: column;
+  }
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media #{$small-only} {
+    padding-bottom: 10px;
+  }
+
+  a {
+    color: #333333;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 300;
+    margin-right: 20px;
+
+    rot-icon {
+      font-size: 20px;
+    }
+  }
+}

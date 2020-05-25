@@ -20,6 +20,8 @@ export namespace Components {
     interface RotButton {
         "theme": "normal" | "invert" | "text";
     }
+    interface RotFooter {
+    }
     interface RotHeader {
         "menu": RotMenuOption[];
         "search": boolean;
@@ -71,6 +73,12 @@ declare global {
     var HTMLRotButtonElement: {
         prototype: HTMLRotButtonElement;
         new (): HTMLRotButtonElement;
+    };
+    interface HTMLRotFooterElement extends Components.RotFooter, HTMLStencilElement {
+    }
+    var HTMLRotFooterElement: {
+        prototype: HTMLRotFooterElement;
+        new (): HTMLRotFooterElement;
     };
     interface HTMLRotHeaderElement extends Components.RotHeader, HTMLStencilElement {
     }
@@ -131,6 +139,7 @@ declare global {
         "app-home": HTMLAppHomeElement;
         "app-root": HTMLAppRootElement;
         "rot-button": HTMLRotButtonElement;
+        "rot-footer": HTMLRotFooterElement;
         "rot-header": HTMLRotHeaderElement;
         "rot-icon": HTMLRotIconElement;
         "rot-main-ruling": HTMLRotMainRulingElement;
@@ -153,6 +162,8 @@ declare namespace LocalJSX {
     }
     interface RotButton {
         "theme"?: "normal" | "invert" | "text";
+    }
+    interface RotFooter {
     }
     interface RotHeader {
         "menu"?: RotMenuOption[];
@@ -186,6 +197,7 @@ declare namespace LocalJSX {
         "app-home": AppHome;
         "app-root": AppRoot;
         "rot-button": RotButton;
+        "rot-footer": RotFooter;
         "rot-header": RotHeader;
         "rot-icon": RotIcon;
         "rot-main-ruling": RotMainRuling;
@@ -205,6 +217,7 @@ declare module "@stencil/core" {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "rot-button": LocalJSX.RotButton & JSXBase.HTMLAttributes<HTMLRotButtonElement>;
+            "rot-footer": LocalJSX.RotFooter & JSXBase.HTMLAttributes<HTMLRotFooterElement>;
             "rot-header": LocalJSX.RotHeader & JSXBase.HTMLAttributes<HTMLRotHeaderElement>;
             "rot-icon": LocalJSX.RotIcon & JSXBase.HTMLAttributes<HTMLRotIconElement>;
             "rot-main-ruling": LocalJSX.RotMainRuling & JSXBase.HTMLAttributes<HTMLRotMainRulingElement>;

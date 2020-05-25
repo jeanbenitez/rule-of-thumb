@@ -9,7 +9,7 @@
   transition: all .5s ease-in-out;
   max-height: 300px;
 
-  @media screen and (max-width: 600px) {
+  @media #{$small-only} {
     grid-template:
       "s s x"
       "b b x"
@@ -29,7 +29,7 @@
 
 span {
   grid-area: s;
-  @media screen and (min-width: 600px) {
+  @media #{$medium-up} {
     font-size: 22px;
     line-height: 26px;
     display: flex;
@@ -40,7 +40,7 @@ span {
 b {
   grid-area: b;
   color: #333333;
-  @media screen and (min-width: 600px) {
+  @media #{$medium-up} {
     font-size: 37px;
     line-height: 42px;
   }
@@ -48,7 +48,7 @@ b {
 
 p {
   grid-area: p;
-  @media screen and (min-width: 600px) {
+  @media #{$medium-up} {
     font-size: 15px;
     letter-spacing: 0px;
     line-height: 23px;

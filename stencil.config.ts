@@ -7,6 +7,7 @@ export const config: Config = {
   plugins: [
     sass({
       injectGlobalPaths: [
+        'src/global/styles/breakpoints.scss',
         'src/global/styles/colors.scss'
       ]
     })

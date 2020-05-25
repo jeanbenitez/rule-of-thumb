@@ -43,7 +43,7 @@ nav {
     display: none;
   }
 
-  @media screen and (max-width: 600px) {
+  @media #{$small-only} {
     &.menu-opened {
       position: absolute;
       top: 0;
@@ -52,12 +52,12 @@ nav {
       width: 100vw;
       display: grid;
       text-align: center;
-      padding: 15vh 0;
+      padding: 20vh 0;
       box-sizing: border-box;
       background-image: linear-gradient( 0deg, rgba(51,51,51,1) 0%, rgba(51,51,51,0.8) 50%, rgba(51,51,51,1) 100%);
 
       stencil-route-link a {
-        font-size: 45px;
+        font-size: 9vw;
         line-height: initial;
       }
 

@@ -32,6 +32,7 @@ export class AppRoot {
             </stencil-route-switch>
           </stencil-router>
         </main>
+        <rot-footer />
       </div>
     );
   }
