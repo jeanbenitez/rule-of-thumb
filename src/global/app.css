@@ -8,8 +8,6 @@
   Any global CSS variables should also be applied here.
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
-
 /* Custom font-face for Icons */
 @font-face {
   font-family: 'ruleofthumb';
