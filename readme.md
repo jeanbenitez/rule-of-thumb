@@ -25,6 +25,14 @@ To build the app for production, run:
 npm run build
 ```
 
+To build the app for github pages, run:
+
+```bash
+npm run build:gh-pages -- PATH_OF_GITHUB_PAGE
+```
+
+where PATH_OF_GITHUB_PAGE is probably the github repo name (default: '/rule-of-thumb/')
+
 To run the unit tests once, run:
 
 ```

@@ -5,7 +5,7 @@
 
 var fs = require('fs');
 
-var path = '/rule-of-thumb/';
+var path = process.argv[2] || '/rule-of-thumb/';
 var indexHtml = 'docs/index.html';
 
 fs.readFile(indexHtml, 'utf8', function (err,data) {
