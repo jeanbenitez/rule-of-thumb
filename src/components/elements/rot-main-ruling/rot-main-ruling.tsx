@@ -14,6 +14,10 @@ export class RotMainRuling implements ComponentInterface {
 
     return !!mainPerson && (
       <Host style={{ 'background-image': `url(${mainPerson.image})` }}>
+        <div
+          class="responsive-main-image"
+          style={{ 'background-image': `url(${mainPerson.image})` }}
+        ></div>
         <rot-main-ruling-card person={mainPerson} />
 
         <section class="closing-in-banner">

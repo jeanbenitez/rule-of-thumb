@@ -1,32 +1,20 @@
 
 :host {
-  position: relative;
-  display: block;
-  max-width: 500px;
-  width:100vw;
-  height: 450px;
-  padding: 60px 10vw;
+  display: grid;
+  grid-template-rows: 1fr;
   color: white;
-}
-
-.main-ruling-card--blur {
-  position: absolute;
-  max-width: 500px;
-  width:100vw;
-  height: 370px;
-  background-color: rgba(51,51,51,0.45);
-  pointer-events: none;
-  backdrop-filter: blur(35px);
-}
-
-.main-ruling-card {
-  position: absolute;
-  max-width: 500px;
-  width:100vw;
-  height: 450px;
   box-sizing: border-box;
-  padding: 44px 37px;
   font-weight: 300;
+  background-color: rgba(51,51,51,0.45);
+  backdrop-filter: blur(35px);
+
+  @media screen and (max-width: 600px) {
+    background-color: rgba(51,51,51,0.65);
+  }
+
+  .card-info {
+    padding: 3vw 3vw 0 3vw;
+  }
 
   .question-opening {
     font-size: 16px;
@@ -37,10 +25,18 @@
     font-size: 60px;
     margin: -5px 0 0 0;
     font-weight: normal;
+
+    @media screen and (max-width: 600px) {
+      font-size: 40px;
+    }
   }
 
   p {
     font-size: 21px;
+    @media screen and (max-width: 600px) {
+      font-size: 19px;
+      margin: 5px 0;
+    }
   }
 
   .more-information {
@@ -55,33 +51,25 @@
     }
   }
 
-  .veredict {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-
-    &--question {
-      font-size: 20px;
-      font-weight: bold;
-      padding: 0 44px;
+  h3 {
+    font-size: 20px;
+    @media screen and (max-width: 600px) {
+      margin: 10px 0;
     }
+  }
 
-    &--buttons {
-      display: flex;
+  .veredict--buttons {
+    display: flex;
+    rot-button {
+      flex: 1;
       width: 100%;
-      padding-top: 30px;
-      rot-button {
-        flex: 1;
-        width: 100%;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 40px;
-        &.up { background-color: transparentize($color: $thumb-up-color, $amount: 0.1); }
-        &.down { background-color: transparentize($color: $thumb-down-color, $amount: 0.1); }
-      }
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      &.up { background-color: transparentize($color: $thumb-up-color, $amount: 0.1); }
+      &.down { background-color: transparentize($color: $thumb-down-color, $amount: 0.1); }
     }
   }
 }

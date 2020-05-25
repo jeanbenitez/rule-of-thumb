@@ -14,8 +14,7 @@ export class RotMainRulingCard implements ComponentInterface {
 
     return (
       <Host>
-        <div class="main-ruling-card--blur"></div>
-        <div class="main-ruling-card">
+        <div class="card-info">
           {questionOpening && <span class="question-opening">{questionOpening}</span>}
           <h1>{name}{questionOpening && '?'}</h1>
           <p>{description}</p>
@@ -26,14 +25,11 @@ export class RotMainRulingCard implements ComponentInterface {
               <a target="_blank" href={moreInfoLink}>More information</a>
             </div>
           )}
-
-          <div class="veredict">
-            {veredictQuestion && <span class="veredict--question">{veredictQuestion}</span>}
-            <div class="veredict--buttons">
-              <rot-button class="up"><rot-icon icon="thumb-up"></rot-icon></rot-button>
-              <rot-button class="down"><rot-icon icon="thumb-down"></rot-icon></rot-button>
-            </div>
-          </div>
+          {veredictQuestion && <h3>{veredictQuestion}</h3>}
+        </div>
+        <div class="veredict--buttons">
+          <rot-button class="up"><rot-icon icon="thumb-up"></rot-icon></rot-button>
+          <rot-button class="down"><rot-icon icon="thumb-down"></rot-icon></rot-button>
         </div>
       </Host>
     );
